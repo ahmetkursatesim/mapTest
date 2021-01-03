@@ -11,26 +11,47 @@ import MapKit
 
 struct MapUIView: View {
     
-    let places = [
-           MapPlace(name: "British Museum", latitude: 51.519581, longitude: -0.127002),
-           MapPlace(name: "Tower of London", latitude: 51.508052, longitude: -0.076035),
-           MapPlace(name: "Big Ben", latitude: 51.500710, longitude: -0.124617)
-       ]
-    
-    @State var region = MKCoordinateRegion(
-            center: CLLocationCoordinate2D(latitude: 51.514134, longitude: -0.104236),
-            span: MKCoordinateSpan(latitudeDelta: 0.075, longitudeDelta: 0.075))
-    
+    @State private var locations = [MKPointAnnotation]()
+    @State private var centerCoordinate = CLLocationCoordinate2D()
+    @State private var selectedPlace: MKPointAnnotation?
+    @State private var showingPlaceDetails = false
     var body: some View {
-        Map(coordinateRegion: $region, annotationItems: places) { item in
-            MapAnnotation(coordinate: item.coordinate, anchorPoint: CGPoint(x: 0.5, y: 0.5)) {
-                Circle()
-                    .strokeBorder(Color.red, lineWidth: 10)
-                    .frame(width: 44, height: 44)
+        ZStack {
+            MapView(centerCoordinate: $centerCoordinate, annotations: locations, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
+                .edgesIgnoringSafeArea(.all)
+            Circle()
+                .fill(Color.blue)
+                .opacity(0.3)
+                .frame(width: 32, height: 32)
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        let newLocation = MKPointAnnotation()
+                        newLocation.title = "Example location"
+                        newLocation.coordinate = self.centerCoordinate
+                        self.locations.append(newLocation)
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .background(Color.black.opacity(0.75))
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .clipShape(Circle())
+                    .padding(.trailing)
+                }
             }
-              }
-              .ignoresSafeArea(.all)
-              
+            
+        }.alert(isPresented: $showingPlaceDetails) {
+            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information."), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
+                // edit this place
+            })
+        }
+
+        
+        
     }
 }
 

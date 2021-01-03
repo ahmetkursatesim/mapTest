@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E3725D2425A1D0AB0089345D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3725D2325A1D0AB0089345D /* MapView.swift */; };
 		E395FDFD25A1025500374EF1 /* mapTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395FDFC25A1025500374EF1 /* mapTestApp.swift */; };
 		E395FDFF25A1025500374EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395FDFE25A1025500374EF1 /* ContentView.swift */; };
 		E395FE0125A1025600374EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E395FE0025A1025600374EF1 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E3725D2325A1D0AB0089345D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		E395FDF925A1025500374EF1 /* mapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E395FDFC25A1025500374EF1 /* mapTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapTestApp.swift; sourceTree = "<group>"; };
 		E395FDFE25A1025500374EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				E395FE3825A1035400374EF1 /* MapUIView.swift */,
+				E3725D2325A1D0AB0089345D /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3725D2425A1D0AB0089345D /* MapView.swift in Sources */,
 				E395FE0625A1025600374EF1 /* Persistence.swift in Sources */,
 				E395FDFF25A1025500374EF1 /* ContentView.swift in Sources */,
 				E395FE4725A1051E00374EF1 /* MapPlace.swift in Sources */,

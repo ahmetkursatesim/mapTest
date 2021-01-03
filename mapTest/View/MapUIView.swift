@@ -58,7 +58,6 @@ struct MapUIView: View {
             })
         }
         .onAppear(){
-            
             let items=datamanager.fetchMapInfo(viewContext:PersistenceController.shared.container.viewContext , entityname:"MapEntity")
             
             items.forEach { (MapEntity) in
@@ -68,11 +67,7 @@ struct MapUIView: View {
                 newLocation.coordinate=CLLocationCoordinate2D(latitude:MapEntity.latitude , longitude: MapEntity.longitude)
                 self.locations.append(newLocation)
             }
-            
-   
         }
-        
-        
     }
 }
 

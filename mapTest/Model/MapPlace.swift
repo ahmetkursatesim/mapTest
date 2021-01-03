@@ -10,7 +10,8 @@ import SwiftUI
 
 struct MapPlace:Identifiable {
     let id=UUID()
-    let name:String
+    let title:String
+    let subtitle:String
     let latitude:Double
     let longitude:Double
     var coordinate: CLLocationCoordinate2D {

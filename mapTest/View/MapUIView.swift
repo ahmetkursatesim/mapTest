@@ -7,15 +7,19 @@
 
 import SwiftUI
 import MapKit
-
+import CoreData
 
 struct MapUIView: View {
-    
+    let persistenceController = PersistenceController.shared
     @State private var locations = [MKPointAnnotation]()
     @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var selectedPlace: MKPointAnnotation?
     @State private var showingPlaceDetails = false
+    @ObservedObject var datamanager = CoreDataViewModel()
+    let fetchrequest=NSFetchRequest<NSFetchRequestResult>(entityName: "MapEntity")
     var body: some View {
+        
+        
         ZStack {
             MapView(centerCoordinate: $centerCoordinate, annotations: locations, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails)
                 .edgesIgnoringSafeArea(.all)
@@ -29,8 +33,12 @@ struct MapUIView: View {
                     Spacer()
                     Button(action: {
                         let newLocation = MKPointAnnotation()
-                        newLocation.title = "Example location"
+                        newLocation.title = "Choosed Location"
+                        newLocation.subtitle="ahmet"
+                        let Item=MapPlace(title: "Choosed Location", subtitle: "Choosed Location", latitude:self.centerCoordinate.latitude,longitude:self.centerCoordinate.longitude)
+                        datamanager.addMapInfo(viewContext: PersistenceController.shared.container.viewContext, entityMap: Item)
                         newLocation.coordinate = self.centerCoordinate
+                       
                         self.locations.append(newLocation)
                     }) {
                         Image(systemName: "plus")
@@ -49,7 +57,20 @@ struct MapUIView: View {
                 // edit this place
             })
         }
-
+        .onAppear(){
+            
+            let items=datamanager.fetchMapInfo(viewContext:PersistenceController.shared.container.viewContext , entityname:"MapEntity")
+            
+            items.forEach { (MapEntity) in
+                let newLocation = MKPointAnnotation()
+                newLocation.title = MapEntity.title
+                newLocation.subtitle = MapEntity.subtitle
+                newLocation.coordinate=CLLocationCoordinate2D(latitude:MapEntity.latitude , longitude: MapEntity.longitude)
+                self.locations.append(newLocation)
+            }
+            
+   
+        }
         
         
     }

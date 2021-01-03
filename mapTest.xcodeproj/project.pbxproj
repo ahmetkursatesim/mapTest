@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E3725D2425A1D0AB0089345D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3725D2325A1D0AB0089345D /* MapView.swift */; };
+		E3725D2D25A1E33D0089345D /* CoreDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3725D2C25A1E33D0089345D /* CoreDataViewModel.swift */; };
 		E395FDFD25A1025500374EF1 /* mapTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395FDFC25A1025500374EF1 /* mapTestApp.swift */; };
-		E395FDFF25A1025500374EF1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395FDFE25A1025500374EF1 /* ContentView.swift */; };
 		E395FE0125A1025600374EF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E395FE0025A1025600374EF1 /* Assets.xcassets */; };
 		E395FE0425A1025600374EF1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E395FE0325A1025600374EF1 /* Preview Assets.xcassets */; };
 		E395FE0625A1025600374EF1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E395FE0525A1025600374EF1 /* Persistence.swift */; };
@@ -39,9 +39,9 @@
 
 /* Begin PBXFileReference section */
 		E3725D2325A1D0AB0089345D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		E3725D2C25A1E33D0089345D /* CoreDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewModel.swift; sourceTree = "<group>"; };
 		E395FDF925A1025500374EF1 /* mapTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E395FDFC25A1025500374EF1 /* mapTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapTestApp.swift; sourceTree = "<group>"; };
-		E395FDFE25A1025500374EF1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E395FE0025A1025600374EF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E395FE0325A1025600374EF1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E395FE0525A1025600374EF1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -82,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3725D2B25A1E3230089345D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E3725D2C25A1E33D0089345D /* CoreDataViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E395FDF025A1025500374EF1 = {
 			isa = PBXGroup;
 			children = (
@@ -105,10 +113,10 @@
 		E395FDFB25A1025500374EF1 /* mapTest */ = {
 			isa = PBXGroup;
 			children = (
+				E3725D2B25A1E3230089345D /* ViewModel */,
 				E395FE3D25A1040D00374EF1 /* Model */,
 				E395FE2F25A1032100374EF1 /* View */,
 				E395FDFC25A1025500374EF1 /* mapTestApp.swift */,
-				E395FDFE25A1025500374EF1 /* ContentView.swift */,
 				E395FE0025A1025600374EF1 /* Assets.xcassets */,
 				E395FE0525A1025600374EF1 /* Persistence.swift */,
 				E395FE0A25A1025600374EF1 /* Info.plist */,
@@ -292,7 +300,7 @@
 			files = (
 				E3725D2425A1D0AB0089345D /* MapView.swift in Sources */,
 				E395FE0625A1025600374EF1 /* Persistence.swift in Sources */,
-				E395FDFF25A1025500374EF1 /* ContentView.swift in Sources */,
+				E3725D2D25A1E33D0089345D /* CoreDataViewModel.swift in Sources */,
 				E395FE4725A1051E00374EF1 /* MapPlace.swift in Sources */,
 				E395FE3925A1035500374EF1 /* MapUIView.swift in Sources */,
 				E395FE0925A1025600374EF1 /* mapTest.xcdatamodeld in Sources */,
